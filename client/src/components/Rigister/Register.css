@@ -1,0 +1,49 @@
+.RegisterForm {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    border-radius: 10px;
+    background-color: var(--cardColor);
+    height: 80%;
+    width: 100%;
+}
+
+.RegisterForm .title {
+    font-size: 2rem;
+    margin: 3rem 2rem;
+}
+
+.RegisterForm>div {
+    gap: 0.3rem;
+    display: flex;
+    flex-direction: row;
+}
+
+.RegisterForm input {
+    width: 100%;
+    align-self: center;
+    border: none;
+    background-color: var(--inputColor);
+    margin: 1rem;
+    padding: 1rem;
+    border-radius: 1rem;
+
+}
+
+.RegisterForm .sub-title {
+    margin-left: 5rem;
+    margin-bottom: 3rem;
+    display: block;
+    flex-direction: row;
+}
+
+.RegisterForm .sub-title>button {
+    width: 30%;
+    margin-top: 3rem;
+    margin-left: 2rem;
+    padding: 10px 1rem;
+    background-color: var(--orange);
+    color: white;
+    border-radius: 10px;
+    border: none
+}

@@ -1,0 +1,87 @@
+ProfileContent {
+    border-radius: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    background: var(--cardColor);
+    overflow-x: clip;
+    position: relative;
+}
+
+.ProfileCenter {
+    border-radius: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    background: var(--cardColor);
+    overflow-x: clip;
+    position: relative;
+}
+
+.ProfileImages {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.ProfileImages>img:nth-of-type(1) {
+    width: 100%;
+    background: no-repeat center/cover
+}
+
+.ProfileImages>img:nth-of-type(2) {
+    width: 6rem;
+    border-radius: 50%;
+    position: absolute;
+    bottom: -3rem;
+    box-shadow: var(--profileShadow);
+}
+
+.ProfileName {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 4rem;
+    flex-direction: column;
+}
+
+.followStatus {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 0.75rem;
+
+}
+
+.followStatus>hr {
+    width: 85%;
+    border: 1px solid var(--hrColor);
+}
+
+.followStatus .follower {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+    justify-content: space-around;
+    gap: 0.75rem;
+    width: 80%;
+}
+
+.follow {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.ProfileCard>span:last-of-type {
+    font-size: 1.5rem;
+    color: var(--orange);
+    display: flex;
+    justify-content: center;
+    margin: 1rem 0;
+}

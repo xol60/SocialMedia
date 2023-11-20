@@ -1,0 +1,31 @@
+.Auth {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    gap: 3rem;
+    flex-direction: row;
+}
+
+.auth-left {
+    display: flex;
+    flex-direction: row;
+}
+
+.auth-left>img {
+    width: 5rem;
+    height: 5rem;
+}
+
+.Webname {
+    gap: 3rem;
+}
+
+.Webname :nth-child(1) {
+    font: size 3rem;
+    color: var(--orange)
+}
+
+.auth-right {
+    width: 40%;
+}

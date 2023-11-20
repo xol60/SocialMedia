@@ -1,0 +1,57 @@
+.PostShare {
+    gap: 1rem;
+    display: flex;
+    flex-direction: row;
+    background-color: var(--cardColor);
+    padding: 1rem;
+    border-radius: 1rem;
+}
+
+.PostShare>img {
+    border-radius: 50%;
+    height: 4rem;
+    width: 4rem;
+}
+
+.functions {
+    display: flex;
+    flex-direction: column;
+    padding: 1rem;
+    width: 90%;
+}
+
+.functions>input {
+    background-color: var(--inputColor);
+    border-radius: 10px;
+    padding: 10px;
+    font-size: 17px;
+    border: none;
+    outline: none;
+}
+
+.functions .options {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    margin-top: 1rem;
+}
+
+.option {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.option:hover {
+    cursor: pointer;
+}
+
+.options>button:nth-last-of-type(1) {
+    padding: 10px 1.2rem;
+    color: white;
+    background-color: var(--orange);
+    text-align: center;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+}

@@ -1,0 +1,48 @@
+.InfoCard {
+    display: flex;
+    flex-direction: column;
+    margin-top: 5rem;
+    padding: 1rem;
+    border-radius: 10px;
+    background-color: var(--cardColor);
+}
+
+.infoHead {
+    display: flex;
+    position: relative;
+}
+
+.infoHead :nth-child(2) {
+    width: 1.5rem;
+    height: 2rem;
+    position: absolute;
+    right: 1rem;
+    top: 1rem;
+}
+
+.info {
+    display: flex;
+    flex-direction: row;
+    gap: 1rem;
+    margin: 5px 0px;
+    position: relative;
+}
+
+.info :nth-child(2) {
+    position: absolute;
+    top: 0rem;
+    left: 5rem;
+}
+
+.InfoCard>button {
+
+    width: 40%;
+    margin-top: 4rem;
+    padding: 10px 1rem;
+    background-color: var(--orange);
+    color: white;
+    border-radius: 10px;
+    align-self: center;
+    border: none;
+
+}

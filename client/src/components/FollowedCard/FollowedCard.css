@@ -1,0 +1,51 @@
+.FollowedCard {
+    display: flex;
+
+    flex-direction: column;
+}
+
+.FollowedCard .title {
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.FollowedCard .followers {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-direction: column;
+    margin-top: 2rem;
+}
+
+.follower {
+    display: flex;
+    gap: 1.5rem;
+    margin-top: 0.5rem;
+}
+
+.followerImage {
+    width: 3rem;
+    height: 3rem;
+    border-radius: 50%;
+    background: no-repeat center/cover;
+}
+
+.follower .name {
+    display: flex;
+    flex-direction: column;
+}
+
+.follower .name>span:nth-last-of-type(1) {
+    font-weight: lighter;
+}
+
+.follower .button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 2rem;
+    width: 3rem;
+    background-color: var(--orange);
+    color: white;
+    border-radius: 10px;
+}
