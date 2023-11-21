@@ -1,4 +1,5 @@
 import { createPostService, getPostService, likeDislikeService, getPostsTimelineService } from "../utils/post.js";
+import uploadImage from "../utils/file.js";
 export const createPost = async (req, res) => {
     try {
         const data = await createPostService(req.body)
@@ -32,6 +33,17 @@ export const getPostsTimeLine = async (req, res) => {
             id: req.user.id,
             pageNumber: req.query.pageNumber || 1,
             pageSize: req.query.pageSize || 5
+        })
+        res.status(200).json(data)
+    } catch (e) {
+        res.status(401).json(e)
+    }
+}
+export const testPost = async (req, res) => {
+    try {
+        const data = await uploadImage({
+            file: req.file,
+            quantity: "single"
         })
         res.status(200).json(data)
     } catch (e) {

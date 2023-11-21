@@ -2,16 +2,22 @@ import express from 'express';
 import dotenv from 'dotenv'
 import bodyParser from 'body-parser';
 import mongoose from 'mongoose'
+import multer from 'multer';
 import AuthRouter from './routes/AuthRouter.js'
 import UserRouter from './routes/UserRouter.js'
 import PostRouter from './routes/PostRouter.js'
+
 const app = express();
+// const upload = multer();
+// app.use(upload.array());
 dotenv.config()
 
 // Middleware
-app.use(bodyParser.json({ limit: "30mb", extended: true }));
-app.use(bodyParser.urlencoded({ limit: "30mb", extended: true }));
-console.log(process.env.MONGO_DB)
+// app.use(bodyParser.json());
+// app.use(bodyParser.urlencoded({
+//     extended: false
+// }));
+
 mongoose
     .connect(process.env.MONGO_DB, {
         useNewUrlParser: true,
