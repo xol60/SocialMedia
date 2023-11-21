@@ -2,7 +2,14 @@ import { createPostService, getPostService, likeDislikeService, getPostsTimeline
 import uploadImage from "../utils/file.js";
 export const createPost = async (req, res) => {
     try {
-        const data = await createPostService(req.body)
+        const imageURL = await uploadImage({
+            file: req.file,
+            quantity: "single"
+        })
+        const data = await createPostService({
+            ...req.body,
+            image: imageURL
+        })
         res.status(200).json(data)
     } catch (e) {
         res.status(401).json(e)
@@ -41,12 +48,12 @@ export const getPostsTimeLine = async (req, res) => {
 }
 export const testPost = async (req, res) => {
     try {
-        const data = await uploadImage({
+        const imageURL = await uploadImage({
             file: req.file,
             quantity: "single"
         })
-        res.status(200).json(data)
+        res.status(200).json(imageURL)
     } catch (e) {
-        res.status(401).json(e)
+        res.status(400).json(e)
     }
 }

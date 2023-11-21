@@ -13,10 +13,8 @@ const app = express();
 dotenv.config()
 
 // Middleware
-// app.use(bodyParser.json());
-// app.use(bodyParser.urlencoded({
-//     extended: false
-// }));
+app.use(express.json())
+app.use(express.urlencoded())
 
 mongoose
     .connect(process.env.MONGO_DB, {
