@@ -9,7 +9,7 @@ function App() {
       <div className="blur first-blur"></div>
       <div className="blur second-blur"></div>
       {/* <Homepage /> */}
-      <Profile />
+      <Auth />
       {/* <Auth /> */}
     </div>
   );
