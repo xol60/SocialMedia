@@ -6,11 +6,12 @@ import { UilScenery } from "@iconscout/react-unicons";
 import { UilPlayCircle } from "@iconscout/react-unicons";
 import { UilLocationPoint } from "@iconscout/react-unicons";
 import { UilSchedule } from "@iconscout/react-unicons";
-
+import { useSelector } from "react-redux";
 const PostShare = () => {
+    const user = useSelector(state => state.auth.user)
     return (
         <div className="PostShare">
-            <img className='ProfileImage' src={ProfileImage} />
+            <img className='ProfileImage' src={user.profilePicture} />
             <div className='functions'>
                 <input type="text" placeholder="What's happening" />
 

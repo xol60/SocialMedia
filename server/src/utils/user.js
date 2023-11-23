@@ -66,8 +66,28 @@ export const getFollowingUsers = async (id) => {
         try {
             const user = await UserModel.findById(id)
             const following = user.following
+            const followers = user.followers
             let users = await UserModel.find({ _id: { $in: following } });
-            resolve(users)
+            console.log(users)
+            const data = users.map((temp) => ({
+                ...temp.toObject(),
+                password: '',
+                follower: followers.includes(temp._id)
+            }))
+            console.log(data)
+            resolve(data)
+        } catch (e) {
+            reject(e)
+        }
+    })
+}
+export const updateNewUser = async ({ id, data }) => {
+    return new Promise(async (resolve, reject) => {
+        try {
+            const user = await UserModel.findByIdAndUpdate(id, { ...data }, {
+                new: true,
+            });
+            resolve(user)
         } catch (e) {
             reject(e)
         }

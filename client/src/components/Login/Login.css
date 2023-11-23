@@ -38,5 +38,10 @@
     background-color: var(--orange);
     color: white;
     border-radius: 10px;
-    border: none
+    border: none;
+    cursor: pointer;
+}
+
+.LoginForm .sub-title>span {
+    cursor: pointer;
 }

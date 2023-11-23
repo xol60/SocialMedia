@@ -1,4 +1,7 @@
 import axios from '../axios/axios.js'
 export const logIn = (data) => {
-    return axios.get('/auth/login', { ...data })
+    return axios.post('/auth/login', { ...data })
+}
+export const register = (data) => {
+    return axios.post('/auth/register', { ...data })
 }

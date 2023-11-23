@@ -11,6 +11,7 @@ export function authentication(req, res, next) {
     token = token.slice(7)
     jwt.verify(token, process.env.JWTKEY, (err, validToken) => {
         if (err) {
+            console.log(err)
             return res.status(400).send({ message: "Access denied." });
         } else {
             req.user = validToken;

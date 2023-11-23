@@ -4,6 +4,10 @@ import Logo from "../../img/logo.png";
 import Login from "../../components/Login/Login";
 import Register from "../../components/Rigister/Register";
 const Auth = () => {
+    const [login, setLogin] = React.useState(true)
+    const changeState = () => {
+        setLogin(!login)
+    }
     return (
         <div className="Auth">
             <div className="auth-left">
@@ -14,8 +18,9 @@ const Auth = () => {
                 </div>
             </div>
             <div className="auth-right">
-                {/* <Login /> */}
-                <Register />
+                {
+                    login ? <Login setLogin={changeState} /> : <Register setRegister={changeState} />
+                }
             </div>
 
         </div>

@@ -1,46 +1,55 @@
-import React from 'react'
-import img1 from "../../img/img1.png";
-import img2 from "../../img/img2.png";
-import img3 from "../../img/img3.png";
-import img4 from "../../img/img4.jpg";
+import React, { useEffect } from 'react'
+
+import { getFollowing } from '../../services';
+import { followUnfollowUser } from '../../store/actions'
+import { useSelector, useDispatch } from 'react-redux';
 import './FollowedCard.css'
 const FollowedCard = () => {
+    const [data, setData] = React.useState([])
+    const dispatch = useDispatch()
+    const { token, user } = useSelector((state) => state.auth)
+    const fetchFollowing = async (token) => {
+        const res = await getFollowing(token)
+        const { data } = res
+        setData(data)
+    }
+    useEffect(() => {
+        fetchFollowing(token)
+    }, [])
+    const setStateChange = async (id, status) => {
+        await dispatch(followUnfollowUser({ token, id, status }))
+
+        await fetchFollowing(token)
+    }
+
     return (
         <div className='FollowedCard'>
             <div className='title'>
                 Who is following you?
             </div>
             <div className='followers'>
-                <div className='follower'>
-                    <img src={img1} alt="" className='followerImage' />
-                    <div className="name">
-                        <span>Henry Known</span>
-                        <span>@4444444</span>
+
+                {data.map((user) => (
+                    <div className='follower'>
+                        <img src={user.profilePicture} alt="" className='followerImage' />
+                        <div className="name">
+                            <span>{user.firstname + ' ' + user.lastname}</span>
+                            <span>{user.username}</span>
+                        </div>
+
+                        {user.follower ? (
+                            <button className='button unfollow' onClick={() => setStateChange(user._id, 'unfollow')}>
+                                Unfollow
+                            </button>
+                        ) : (
+                            <button className='button ' onClick={() => setStateChange(user._id, 'follow')}>
+                                Follow
+                            </button>
+                        )}
+
                     </div>
-                    <button className='button fc-button'>
-                        Follow
-                    </button>
-                </div>
-                <div className='follower'>
-                    <img src={img1} alt="" className='followerImage' />
-                    <div className="name">
-                        <span>Henry Known</span>
-                        <span>@4444444</span>
-                    </div>
-                    <button className='button fc-button'>
-                        Follow
-                    </button>
-                </div>
-                <div className='follower'>
-                    <img src={img1} alt="" className='followerImage' />
-                    <div className="name">
-                        <span>Henry Known</span>
-                        <span>@4444444</span>
-                    </div>
-                    <button className='button fc-button'>
-                        Follow
-                    </button>
-                </div>
+                ))}
+
             </div>
         </div>
     )

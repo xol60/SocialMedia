@@ -1,33 +1,33 @@
 import React from "react";
-import Cover from "../../img/cover.jpg";
-import Profile from "../../img/profileImg.jpg";
+import { useSelector } from "react-redux";
 import "./ProfileCenter.css";
 import PostShare from "../PostShare/PostShare";
 const ProfileCenter = () => {
     const ProfilePage = true;
+    const user = useSelector(state => state.auth.user)
     return (
         <div className="ProfileContent">
             <div className="ProfileCenter">
                 <div className="ProfileImages">
-                    <img src={Cover} alt="" />
-                    <img src={Profile} alt="" />
+                    <img src={user.coverPicture} alt="" />
+                    <img src={user.profilePicture} alt="" />
                 </div>
 
                 <div className="ProfileName">
-                    <span>Zendaya MJ</span>
-                    <span>Senior UI/UX Designer</span>
+                    <span>{user.firstname + ' ' + user.lastname}</span>
+                    <span>{user.about}</span>
                 </div>
 
                 <div className="followStatus">
                     <hr />
                     <div className="follower">
                         <div className="follow">
-                            <span>6,890</span>
+                            <span>{user.following.length}</span>
                             <span>Followings</span>
                         </div>
                         <div className="vl"></div>
                         <div className="follow">
-                            <span>1</span>
+                            <span>{user.followers.length}</span>
                             <span>Followers</span>
                         </div>
 

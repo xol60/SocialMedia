@@ -44,8 +44,13 @@
     align-items: center;
     justify-content: center;
     height: 2rem;
-    width: 3rem;
+    width: 5rem;
     background-color: var(--orange);
     color: white;
     border-radius: 10px;
+    cursor: pointer
+}
+
+.follower .unfollow {
+    background-color: var(--location);
 }

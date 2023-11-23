@@ -10,16 +10,16 @@ const commonConfig = {
     stateReconciler: autoMergeLevel2
 }
 
-const musicConfig = {
+const authConfig = {
     ...commonConfig,
     key: 'auth',
-    whitelist: ['token', 'user']
+    whitelist: ['token', 'user', 'isLogin']
 }
 
 
 const rootReducer = combineReducers({
 
-    music: persistReducer(musicConfig, authReducer),
+    auth: persistReducer(authConfig, authReducer),
 })
 
 export default rootReducer
