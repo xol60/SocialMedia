@@ -38,7 +38,7 @@ export const loginUserService = async (data) => {
     return new Promise(async (resolve, reject) => {
         try {
             const user = await UserModel.findOne({ username: data.username });
-
+            console.log(user)
             if (user) {
                 const validity = await bcrypt.compare(data.password, user.password);
 

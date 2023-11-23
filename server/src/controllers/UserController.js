@@ -1,4 +1,4 @@
-import { getUserService, getAllUserService, followUnfollowService } from '../utils/user.js'
+import { getUserService, getAllUserService, followUnfollowService, getFollowingUsers } from '../utils/user.js'
 
 export const getUser = async (req, res) => {
     const id = req.params.id;
@@ -46,5 +46,13 @@ export const getUser1 = async (req, res) => {
         res.status(500).json(error);
     }
 };
+export const getFollowing = async (req, res) => {
+    try {
+        const data = await getFollowingUsers(req.user.id)
 
+        res.status(200).json(data)
+    } catch (error) {
+        res.status(500).json(error);
+    }
+};
 

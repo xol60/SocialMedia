@@ -6,12 +6,12 @@ import multer from 'multer';
 import AuthRouter from './routes/AuthRouter.js'
 import UserRouter from './routes/UserRouter.js'
 import PostRouter from './routes/PostRouter.js'
-
+import cors from 'cors'
 const app = express();
 // const upload = multer();
 // app.use(upload.array());
 dotenv.config()
-
+app.use(cors())
 // Middleware
 app.use(express.json())
 app.use(express.urlencoded())

@@ -61,3 +61,15 @@ export const followUnfollowService = async ({ id, idFollow }) => {
         }
     })
 }
+export const getFollowingUsers = async (id) => {
+    return new Promise(async (resolve, reject) => {
+        try {
+            const user = await UserModel.findById(id)
+            const following = user.following
+            let users = await UserModel.find({ _id: { $in: following } });
+            resolve(users)
+        } catch (e) {
+            reject(e)
+        }
+    })
+}
