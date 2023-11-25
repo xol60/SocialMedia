@@ -7,11 +7,13 @@ export const createPost = async (req, res) => {
             quantity: "single"
         })
         const data = await createPostService({
-            ...req.body,
+            userId: req.body.userId,
+            desc: req.body.descrtiption,
             image: imageURL
         })
         res.status(200).json(data)
     } catch (e) {
+        console.log(e)
         res.status(401).json(e)
     }
 }

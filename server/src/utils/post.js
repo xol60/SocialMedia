@@ -4,7 +4,7 @@ import UserModel from "../models/UserModel.js";
 export const createPostService = async (data) => {
     return new Promise(async (resolve, reject) => {
         try {
-            const newPost = new PostModel(req.body);
+            const newPost = new PostModel(data);
             await newPost.save();
             resolve({
                 message: 'Create post successfull'
@@ -27,12 +27,12 @@ export const getPostService = async (id) => {
 export const likeDislikeService = async ({ idUser, idPost }) => {
     return new Promise(async (resolve, reject) => {
         try {
-            const post = await PostModel.findById(id);
-            if (post.likes.includes(userId)) {
-                await post.updateOne({ $pull: { likes: userId } });
+            const post = await PostModel.findById(idPost);
+            if (post.likes.includes(idUser)) {
+                await post.updateOne({ $pull: { likes: idUser } });
                 resolve({ messge: "Post disliked" });
             } else {
-                await post.updateOne({ $push: { likes: userId } });
+                await post.updateOne({ $push: { likes: idUser } });
                 resolve({ messge: "Post liked" });
             }
         } catch (e) {
@@ -52,7 +52,7 @@ export const getPostsTimelineService = async ({ id, pageNumber, pageSize }) => {
                 {
                     $lookup: {
                         from: "posts",
-                        localField: "following",
+                        localField: "followers",
                         foreignField: "userId",
                         as: "followingPosts",
                     },
@@ -63,7 +63,7 @@ export const getPostsTimelineService = async ({ id, pageNumber, pageSize }) => {
                         _id: 0,
                     },
                 },
-                { $skip: (pageNumber - 1) * pageSize },
+                { $skip: (pageNumber - 1) * 0 },
                 { $limit: pageSize },
                 {
                     $sort: {
@@ -71,6 +71,7 @@ export const getPostsTimelineService = async ({ id, pageNumber, pageSize }) => {
                     }
                 }
             ]);
+
             resolve(followingPosts)
         } catch (e) {
             reject(e)

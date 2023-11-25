@@ -33,7 +33,7 @@ export const getAllUserService = async () => {
 export const followUnfollowService = async ({ id, idFollow }) => {
     return new Promise(async (resolve, reject) => {
         try {
-            console.log(id, idFollow)
+
             if (idFollow === id) {
                 reject({
                     message: 'Access Denied'
@@ -68,13 +68,13 @@ export const getFollowingUsers = async (id) => {
             const following = user.following
             const followers = user.followers
             let users = await UserModel.find({ _id: { $in: following } });
-            console.log(users)
+
             const data = users.map((temp) => ({
                 ...temp.toObject(),
                 password: '',
                 follower: followers.includes(temp._id)
             }))
-            console.log(data)
+
             resolve(data)
         } catch (e) {
             reject(e)
