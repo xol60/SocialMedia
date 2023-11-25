@@ -6,6 +6,6 @@ const router = express.Router()
 router.post('/test', upload, testPost)
 router.post('/create', upload, createPost)
 router.get('/:id/get', getPost)
-router.put('/:id/status-change', likeDislikePost)
+router.put('/:id/status-change', authentication, likeDislikePost)
 router.get('/get-posts', authentication, getPostsTimeLine)
 export default router;

@@ -9,7 +9,8 @@ export const createPost = async (req, res) => {
         const data = await createPostService({
             userId: req.body.userId,
             desc: req.body.descrtiption,
-            image: imageURL
+            image: imageURL,
+            desc: req.body.desc
         })
         res.status(200).json(data)
     } catch (e) {
@@ -27,12 +28,14 @@ export const getPost = async (req, res) => {
 }
 export const likeDislikePost = async (req, res) => {
     try {
+        console.log(req.params)
         const data = await likeDislikeService({
             idUser: req.user.id,
             idPost: req.params.id
         })
         res.status(200).json(data)
     } catch (e) {
+        console.log(e)
         res.status(401).json(e)
     }
 }

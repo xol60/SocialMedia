@@ -11,12 +11,17 @@
     object-fit: cover;
     object-position: center;
     margin-top: 1rem;
+    cursor: pointer;
 }
 
 .PostStatus {
     display: flex;
     align-items: flex-start;
     gap: 1.5rem;
+}
+
+.PostStatus>img {
+    cursor: pointer;
 }
 
 .detail>span:nth-of-type(1) {
