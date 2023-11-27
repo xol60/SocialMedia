@@ -10,6 +10,7 @@
     width: 20%;
     border-radius: 1rem;
     grid-template-rows: 4rem auto 3rem;
+
 }
 
 .ChatCard .title {
@@ -44,6 +45,7 @@
 .detail {
     display: flex;
     flex-direction: column;
+    overflow: scroll;
 }
 
 .message {

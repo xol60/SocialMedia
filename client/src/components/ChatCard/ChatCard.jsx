@@ -5,12 +5,13 @@ import { format } from "timeago.js";
 import { getMessages, createMessage, getChat } from "../../services";
 import { useSelector } from "react-redux";
 import InputEmoji from 'react-input-emoji'
+import { useRef } from "react";
 const ChatCard = ({ chat, userId, setChat, setSendMessage, receivedMessage }) => {
     const leftUser = chat?.userData.find(user => user._id != userId)
     const [messages, setMessages] = useState([]);
     const [newMessage, setNewMessage] = useState('')
     const token = useSelector(state => state.auth.token)
-
+    const scroll = useRef();
 
     useEffect(async () => {
         const getMessagesServer = async (id) => {
@@ -66,8 +67,10 @@ const ChatCard = ({ chat, userId, setChat, setSendMessage, receivedMessage }) =>
         }
 
     }, [receivedMessage])
-    console.log(chat, userId)
-    console.log(messages)
+    useEffect(() => {
+        scroll.current?.scrollIntoView({ behavior: "smooth" });
+    }, [messages])
+
     return (
         <React.Fragment>
             {chat && <div className="ChatCard">
@@ -83,7 +86,7 @@ const ChatCard = ({ chat, userId, setChat, setSendMessage, receivedMessage }) =>
 
                         return (
                             <>
-                                <div
+                                <div ref={scroll}
                                     className={
                                         message.senderId === userId
                                             ? "message own"
