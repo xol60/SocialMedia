@@ -3,7 +3,7 @@ export const createMessage = async (req, res) => {
     try {
         const data = await createMessageService({
             ...req.body,
-            senderId: req.user.id
+            senderId: req.user.id,
         })
         res.status(200).json(data)
     } catch (e) {

@@ -1,26 +1,20 @@
 import React from 'react'
-import { TrendData } from '../../Data/TrendData'
+
 import './ChatBox.css'
-import ChatCard from '../ChatCard/ChatCard'
-const ChatBox = () => {
-    const user = TrendData[0]
+
+const ChatBox = ({ data, userId, setChat, onlineUsers }) => {
+
+    const leftUser = data.userData.find(user => user._id != userId)
+    const isOnline = onlineUsers.some((user) => leftUser._id === user.userId)
     return (
-        <div className='Chat-Info'>
-            <div className="ChatBox">
-                {TrendData.map((trend) => {
-                    return (
-                        <div className="Chat">
-                            <img src={trend.image}></img>
-                            <div className="info-chat">
-                                <span >{trend.name}</span>
-                                <span >{trend.status}</span>
-                            </div>
-                            <button className='button' > Chat</button>
-                        </div>
-                    )
-                })}
+
+        <div className="Chat">
+            <img src={leftUser.profilePicture}></img>
+            <div className="info-chat">
+                <span >{leftUser.firstname + leftUser.lastname}</span>
+                <span >{isOnline ? 'Online' : 'Offline'}</span>
             </div>
-            <ChatCard data={user} />
+            <button className='button' onClick={() => setChat(data)}> Chat</button>
         </div>
     )
 }

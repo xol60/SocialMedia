@@ -3,5 +3,5 @@ const router = express.Router()
 import { authentication } from '../middleware/authentication.js'
 import { createMessage, getMessages } from '../controllers/MessageController.js'
 router.post('/create', authentication, createMessage)
-router.get('/:chatId', authentication, getMessages)
+router.get('/:chatId', getMessages)
 export default router

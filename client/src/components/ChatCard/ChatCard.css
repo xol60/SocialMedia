@@ -38,4 +38,58 @@
     height: 1rem;
     position: absolute;
     right: 1rem;
+    cursor: pointer;
+}
+
+.detail {
+    display: flex;
+    flex-direction: column;
+}
+
+.message {
+
+    background: var(--buttonBg);
+    color: white;
+    padding: 0.7rem;
+    border-radius: 1rem 1rem 1rem 0;
+    max-width: 28rem;
+    width: fit-content;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    margin-top: 0.5rem;
+}
+
+.message>span:nth-child(2) {
+    font-size: 0.7rem;
+    color: var(--textColor);
+    align-self: flex-start;
+}
+
+.own {
+    align-self: flex-end;
+    border-radius: 1rem 1rem 0 1rem;
+    background: linear-gradient(98.63deg, #24e4f0 0%, #358ff9 100%);
+}
+
+.own>span:nth-child(2) {
+    align-self: flex-end;
+}
+
+.input {
+    display: flex;
+    flex-direction: row;
+}
+
+.input>button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 2rem;
+    width: 3rem;
+    background-color: var(--orange);
+    color: white;
+    border-radius: 10px;
+    cursor: pointer;
+    margin-top: 0.5rem
 }

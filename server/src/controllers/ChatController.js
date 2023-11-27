@@ -1,4 +1,4 @@
-import { createChatService, getChatsService } from "../utils/chat.js";
+import { createChatService, getChatsService, getChatService } from "../utils/chat.js";
 export const createChat = async (req, res) => {
     try {
         const data = await createChatService({
@@ -19,9 +19,11 @@ export const getChats = async (req, res) => {
     }
 }
 
-export const createChat1 = async (req, res) => {
+export const getChat = async (req, res) => {
     try {
 
+        const data = await getChatService(req.params.id)
+        res.status(200).json(data)
     } catch (e) {
         res.status(500).json(e)
     }

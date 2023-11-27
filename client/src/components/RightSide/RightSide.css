@@ -25,3 +25,26 @@
     align-self: center;
     border: none
 }
+
+.Chat-Info {
+    display: flex;
+    flex-direction: column;
+
+}
+
+.ChatBox {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    background-color: var(--inputColor);
+    border-radius: 1rem;
+    height: 50%;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 1rem;
+    overflow-y: auto;
+}
+
+::-webkit-scrollbar {
+    width: 0px;
+}
