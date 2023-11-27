@@ -6,6 +6,8 @@ import multer from 'multer';
 import AuthRouter from './routes/AuthRouter.js'
 import UserRouter from './routes/UserRouter.js'
 import PostRouter from './routes/PostRouter.js'
+import ChatRouter from './routes/ChatRouter.js'
+import MessageRouter from './routes/MessageRouter.js'
 import cors from 'cors'
 const app = express();
 // const upload = multer();
@@ -30,3 +32,5 @@ mongoose
 app.use('/api/auth', AuthRouter)
 app.use('/api/user', UserRouter)
 app.use('/api/post', PostRouter)
+app.use('/api/chat', ChatRouter)
+app.use('/api/message', MessageRouter)

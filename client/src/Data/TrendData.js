@@ -1,26 +1,33 @@
+import postPic1 from '../img/postpic1.jpg'
 export const TrendData = [
     {
         name: "Minions",
-        shares: 97,
+        status: 'Offline',
+        image: postPic1
     },
     {
-        name: "Avangers",
-        shares: 80.5,
+        name: "Minions",
+        status: 'Offline',
+        image: postPic1
     },
     {
-        name: "Zainkeepscode",
-        shares: 75.5,
+        name: "Minions",
+        status: 'Offline',
+        image: postPic1
     },
     {
-        name: "Reactjs",
-        shares: 72,
+        name: "Minions",
+        status: 'Offline',
+        image: postPic1
     },
     {
-        name: "Elon Musk",
-        shares: 71.9,
+        name: "Minions",
+        status: 'Offline',
+        image: postPic1
     },
     {
-        name: "Need for Speed",
-        shares: 20,
+        name: "Minions",
+        status: 'Offline',
+        image: postPic1
     },
 ];

@@ -5,7 +5,6 @@ import { Link } from "react-router-dom";
 import './ProfileCard.css'
 const ProfileCard = () => {
     const user = useSelector((state) => state.auth.user)
-    console.log(user)
     return (
         <div className="ProfileCard">
             <div className="ProfileImages">
