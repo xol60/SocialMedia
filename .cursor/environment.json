@@ -1,0 +1,20 @@
+{
+  "name": "SocialMedia (MERN)",
+  "install": "bash ./.cursor/install.sh",
+  "start": "bash ./.cursor/start.sh",
+  "terminals": [
+    {
+      "name": "server",
+      "command": "cd server && npm start"
+    },
+    {
+      "name": "socket",
+      "command": "cd socket && npm start"
+    },
+    {
+      "name": "client",
+      "command": "cd client && BROWSER=none npm start"
+    }
+  ],
+  "ports": [3003, 3006, 8080]
+}
